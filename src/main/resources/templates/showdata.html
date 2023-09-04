@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Getting Started: Serving Web Content</title> 
+ </head>
+<body>
+<a href="/">Add New Employee</a>
+	<div>
+	<table border="1">
+		<thead>
+			<tr>
+			 <th>EmpId</th>
+			 <th>EmpName</th>
+			 <th>EmpAge</th>
+			 <th>EmpSal</th>
+			 <th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+		  <tr th:each="emp: ${empList}">
+		    <td th:text="${emp.empId}"></td>
+		    <td th:text="${emp.empName}"></td>
+		    <td th:text="${emp.empAge}"></td>
+		    <td th:text="${emp.empSal}"></td>
+		    <td><a th:href="@{/updateForm/{id}(id=${emp.empId})}">Edit</a></td>
+		    <td><a th:href="@{/deleteEmp/{id}(id=${emp.empId})}">delete</a></td>
+		  </tr>
+		</tbody>
+	</table>
+	</div>
+	<div>
+	<p th:text="${msg}"/>
+	</div>
+</body>
+</html>

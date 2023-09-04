@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Getting Started: Serving Web Content</title> 
+ </head>
+<body>
+<h1>Edit Employee  Form</h1>
+	<form th:action="@{/updateEmpData}" th:object="${employee} " method="post">
+		<table>
+			<tr>
+				<td>EmpName</td>
+				<td><input type="text" th:field="*{empId}" readonly/></td>
+			</tr>
+			<tr>
+				<td>EmpName</td>
+				<td><input type="text" th:field="*{empName}" /></td>
+			</tr>
+			<tr>
+				<td>EmpAge</td>
+				<td><input type="text" th:field="*{empAge}" /></td>
+			</tr>
+			<tr>
+				<td>EmpSal</td>
+				<td><input type="text" th:field="*{empSal}" /></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" value="submit" /></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
