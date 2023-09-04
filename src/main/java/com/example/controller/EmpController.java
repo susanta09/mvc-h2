@@ -77,5 +77,6 @@ public class EmpController {
 		empService.deleteEmpById(id);
 		redirectAttrs.addFlashAttribute("msg", "Data Deleted successfully....");
 		return "redirect:/employees";
+		
 	}
 }
