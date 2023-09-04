@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +16,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.entity.Employee;
 import com.example.service.EmpService;
+
+import jakarta.validation.Valid;
 
 @Controller
 public class EmpController {
@@ -29,9 +32,13 @@ public class EmpController {
 		return "form";
 	}
 	@PostMapping("/emp")
-	public String getUiData(Employee employee,Model m)
+	public String getUiData(@Valid Employee employee,BindingResult result,Model m)
 	{
-		System.out.println(employee);
+		if(result.hasErrors())
+		{
+			return "form";
+		}
+		System.out.println("save "+employee);
 		Boolean b=empService.saveData(employee);
 		
 		if(b)

@@ -11,14 +11,17 @@
 			<tr>
 				<td>EmpName</td>
 				<td><input type="text" th:field="*{empName}"/></td>
+				<td th:if="${#fields.hasErrors('empName')}" th:errors="*{empName}"></td>
 			</tr>
 			<tr>
 				<td>EmpAge</td>
 				<td><input type="text" th:field="*{empAge}"/></td>
+				<td th:if="${#fields.hasErrors('empAge')}" th:errors="*{empAge}"></td>
 			</tr>
 			<tr>
 				<td>EmpSal</td>
 				<td><input type="text" th:field="*{empSal}"/></td>
+				<td th:if="${#fields.hasErrors('empSal')}" th:errors="*{empSal}"></td>
 			</tr>
 			<tr>
 			 <td></td>
